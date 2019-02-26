@@ -35,16 +35,20 @@ nav ul li a:hover {
 #welcome-section {
   color: white;
   top: 0;
-  min-height: 55vh;
-  padding-top: 45vh;
+  padding: 100px 4rem;
   background: linear-gradient(to bottom right, rgb(100, 201, 202), rgb(182, 47, 246));
+}
+
+#welcome-section div {
+  border: 2px solid #aaa;
+  border-radius: 22px;
 }
 
 #welcome-section h1 {
   font-weight: 800;
 }
 
-#welcome-section h3 {
+#welcome-section p {
   font-weight: 200;
 }
 
