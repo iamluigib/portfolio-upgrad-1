@@ -1,5 +1,5 @@
-import { films } from './films.js'
-import { people } from './people.js'
+import { films } from '../data/films.js'
+import { people } from '../data/people.js'
 
 const intro = document.querySelector('#welcome-section')
 
@@ -18,11 +18,3 @@ films.forEach((film) => {
 
   intro.appendChild(tile)
 })
-
-const men = people.filter(person => person.gender === "male")
-
-const women = people.filter(person => person.gender === "female")
-
-const other = people.filter(person => (person.gender === "n/a") || (person.gender === "none") || (person.gender === "hermaphrodite"))
-
-console.log(other)
