@@ -1,9 +1,10 @@
-import { films } from '../data/films.js'
-import { people } from '../data/people.js'
+import {
+  films
+} from '../data/films.js'
 
 const intro = document.querySelector('#welcome-section')
 
-films.sort ((a,b) => (a.episode_id > b.episode_id) ? 1 : -1)
+films.sort((a, b) => (a.episode_id > b.episode_id) ? 1 : -1)
 
 films.forEach((film) => {
   let tile = document.createElement("div")
