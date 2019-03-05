@@ -18,3 +18,5 @@ men.forEach(man => {
 
   document.appendChild('manDiv')
 })
+
+// Clarification
