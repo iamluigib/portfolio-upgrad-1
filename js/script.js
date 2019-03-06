@@ -8,7 +8,7 @@ import {
 
 const projects = document.querySelector('#projects-content')
 
-people.sort((a, b) => (a.height > b.height) ? 1 : -1)
+people.sort((a, b) => (a.height - b.height))
 
 people.forEach((person) => {
   let column = document.createElement('div')
@@ -34,9 +34,13 @@ people.forEach((person) => {
   cardContent.appendChild(titleElement)
   titleElement.textContent = person.name
 
-  let crawlElement = document.createElement('p')
-  cardContent.appendChild(crawlElement)
-  crawlElement.textContent = person.height
+  let charHeight = document.createElement('p')
+  cardContent.appendChild(charHeight)
+  if (person.height === 'unknown') {
+    charHeight.textContent = 'height unknown :('
+  } else {
+    charHeight.textContent = person.height + ' cm'
+  }
 
   console.log('Card created for ' + person.name + '!')
 })
