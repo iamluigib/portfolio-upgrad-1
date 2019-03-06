@@ -5,68 +5,54 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
-  <nav>
-    <ul id="navbar">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="navbar-fixed">
+    <nav class="white">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center black-text">LB</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="black-text" href="#projects">Projects</a></li>
+          <li><a class="black-text" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <main>
-    <div id="welcome-section"></div>
+    <div id="welcome-section">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 valign-wrapper">
+            <h1>I am Luigi Battista</h1>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="container" id="projects">
       <div class="row">
         <div class="col s12">
-          <h2>My fantastic work.</h2>
+          <h3>My Favorite Star Wars Characters</h3>
         </div>
       </div>
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fsearchengineland.com%2Ffigz%2Fwp-content%2Fseloads%2F2016%2F06%2Fgoogle-home-page-gray-1465304286-800x446.png&f=1" alt="Google">
-            </div>
-            <div class="card-content">
-              <span class="card-title"><a href="https://google.com" target="_blank">Google</a></span>
-              <p>Most popular search engine on Earth.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fbingblog.blob.core.windows.net%2Fbing%2F2014%2F11%2FFull-Page-Beauty-Bundle-Screenshot-3.png&f=1" alt="Bing">
-            </div>
-            <div class="card-content">
-              <span class="card-title"><a href="https://bing.com" target="_blank">Bing</a></span>
-              <p>Doesn't have a boring gray background</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Vi6J7qYik7nZUE-xsQXwCQHaEK%26pid%3D15.1&f=1" alt="DuckDuckGo">
-            </div>
-            <div class="card-content">
-              <span class="card-title"><a href="https://duckduckgo.com" target="_blank">DuckDuckGo</a></span>
-              <p>The search engine that doesn't track you.</p>
-            </div>
-          </div>
-        </div>
+      <div class="row" id="projects-content">
       </div>
-
     </div>
 
     <div id="contact">
-      <h3>Like what you see?<br>Check me out.</h3>
-      <a href="starWarsPeople.html" target="_blank" id="profile-link">GitHub Project</a>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center-align">
+            <h3>Like what you see?<br>Check me out.</h3>
+            <a href="starWarsPeople.html" target="_blank" class="btn-large white black-text">GitHub Project</a>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
