@@ -1,8 +1,4 @@
 import {
-  films
-} from '../data/films.js'
-
-import {
   people
 } from '../data/people.js'
 
