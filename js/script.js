@@ -15,13 +15,13 @@ people.forEach((person) => {
   column.className = 'col s12 m6'
   projects.appendChild(column)
 
-  let card = document.createElement("div")
+  let card = document.createElement('div')
   if (person.gender === 'male') {
-    card.className = "card hoverable blue accent-3 white-text"
+    card.className = 'card hoverable blue accent-3 white-text'
   } else if (person.gender === 'female') {
-    card.className = "card hoverable pink accent-1 white-text"
+    card.className = 'card hoverable pink accent-1 white-text'
   } else {
-    card.className = "card hoverable yellow"
+    card.className = 'card hoverable yellow'
   }
   column.appendChild(card)
 
@@ -30,7 +30,7 @@ people.forEach((person) => {
   card.appendChild(cardContent)
 
   let titleElement = document.createElement('span')
-  titleElement.className = "card-title"
+  titleElement.className = 'card-title'
   cardContent.appendChild(titleElement)
   titleElement.textContent = person.name
 
