@@ -2,19 +2,27 @@ import {
   films
 } from '../data/films.js'
 
-const intro = document.querySelector('#welcome-section')
+import {
+  people
+} from '../data/people.js'
 
 const projects = document.querySelector('#projects-content')
 
-films.sort((a, b) => (a.episode_id > b.episode_id) ? 1 : -1)
+people.sort((a, b) => (a.height > b.height) ? 1 : -1)
 
-films.forEach((film) => {
+people.forEach((person) => {
   let column = document.createElement('div')
-  column.className = 'col s12 m6 l4'
+  column.className = 'col s12 m6'
   projects.appendChild(column)
 
   let card = document.createElement("div")
-  card.className = "card hoverable"
+  if (person.gender === 'male') {
+    card.className = "card hoverable blue accent-3 white-text"
+  } else if (person.gender === 'female') {
+    card.className = "card hoverable pink accent-1 white-text"
+  } else {
+    card.className = "card hoverable yellow"
+  }
   column.appendChild(card)
 
   let cardContent = document.createElement('div')
@@ -24,9 +32,11 @@ films.forEach((film) => {
   let titleElement = document.createElement('span')
   titleElement.className = "card-title"
   cardContent.appendChild(titleElement)
-  titleElement.textContent = film.title
+  titleElement.textContent = person.name
 
   let crawlElement = document.createElement('p')
   cardContent.appendChild(crawlElement)
-  crawlElement.textContent = film.opening_crawl
+  crawlElement.textContent = person.height
+
+  console.log('Card created for ' + person.name + '!')
 })
