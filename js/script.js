@@ -1,42 +1,93 @@
+// import characters from SWAPI people API
 import {
   people
 } from '../data/people.js'
 
+// reference point in document
 const projects = document.querySelector('#projects-content')
 
+// function to get SWAPI person number
+const getLastNumber = (url) => {
+  let end = url.lastIndexOf('/')
+  let start = end - 2
+  if (url.charAt(start) === '/') {
+    start++
+  }
+  return url.slice(start, end)
+}
+
+// sort people from shortest to tallest
 people.sort((a, b) => (a.height - b.height))
 
-people.forEach((person) => {
+// custom values from array people
+const myPeopleArray = people.map(person => {
+  let imageURL = getLastNumber(person.url)
+  return {
+    name: person.name,
+    height: person.height,
+    eye_color: person.eye_color,
+    gender: person.gender,
+    imagePath: `https://starwars-visualguide.com/assets/img/characters/${imageURL}.jpg`
+  }
+})
+
+// card creation loop for SWAPI characters
+myPeopleArray.forEach((person) => {
+  // create column element for grid system
   let column = document.createElement('div')
-  column.className = 'col s12 m6'
+  column.className = 'col s12 m6 l4'
   projects.appendChild(column)
 
+  // create card element & change color based on gender
   let card = document.createElement('div')
+  card.title = person.name
   if (person.gender === 'male') {
-    card.className = 'card hoverable blue accent-3 white-text'
+    card.className = 'card medium hoverable blue accent-3 white-text'
   } else if (person.gender === 'female') {
-    card.className = 'card hoverable pink accent-1 white-text'
+    card.className = 'card medium hoverable pink accent-1 white-text'
   } else {
-    card.className = 'card hoverable yellow'
+    card.className = 'card medium hoverable yellow'
   }
   column.appendChild(card)
 
+  // create card image container
+  let cardImage = document.createElement('div')
+  cardImage.className = 'card-image'
+  card.appendChild(cardImage)
+
+  // create image from SW visual guide
+  let imgElement = document.createElement('img')
+  imgElement.src = person.imagePath
+  imgElement.alt = 'character image'
+  cardImage.appendChild(imgElement)
+
+  // create card content container
   let cardContent = document.createElement('div')
   cardContent.className = 'card-content'
   card.appendChild(cardContent)
 
+  // create card title from SWAPI character name
   let titleElement = document.createElement('span')
-  titleElement.className = 'card-title'
+  titleElement.className = 'card-title truncate'
   cardContent.appendChild(titleElement)
   titleElement.textContent = person.name
 
+  // convert character height from cm to ft & in
+  let charHeightFeet = person.height / 30.48
+  let charHeightFeetRounded = Math.floor(charHeightFeet)
+  let charHeightInches = person.height % 30.48 / 2.54
+  let charHeightInchesRounded = Math.floor(charHeightInches)
+
+  // create character height in card content container
   let charHeight = document.createElement('p')
   cardContent.appendChild(charHeight)
-  if (person.height === 'unknown') {
-    charHeight.textContent = 'height unknown :('
-  } else {
-    charHeight.textContent = person.height + ' cm'
-  }
 
-  console.log('Card created for ' + person.name + '!')
+  // log failed and created card in console
+  if (person.height === 'unknown') {
+    card.className = 'hide-me'
+    console.log('Card NOT created for ' + person.name + ' due to insufficient data.')
+  } else {
+    charHeight.textContent = charHeightFeetRounded + " ft " + charHeightInchesRounded + " in"
+    console.log('Card successfully created for ' + person.name + '!')
+  }
 })

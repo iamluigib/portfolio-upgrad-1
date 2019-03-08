@@ -49,3 +49,7 @@ h6 {
   padding-bottom: 5vh;
   background: linear-gradient(to top right, rgb(100, 201, 202), rgb(182, 47, 246));
 }
+
+.hide-me {
+  display: none;
+}
