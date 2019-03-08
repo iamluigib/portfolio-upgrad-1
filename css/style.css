@@ -53,3 +53,22 @@ h6 {
 .hide-me {
   display: none;
 }
+
+.card,
+.card-panel {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all .25s ease-in-out;
+  -webkit-transition: all .25s ease-out;
+}
+
+.card:hover,
+.card-panel:hover {
+  -webkit-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -o-transform: translateY(-5px);
+  transform: translateY(-5px);
+  transition: all .25s ease-in-out;
+  -webkit-transition: all .25s ease-out;
+}

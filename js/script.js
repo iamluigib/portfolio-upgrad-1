@@ -50,6 +50,14 @@ myPeopleArray.forEach((person) => {
   }
   column.appendChild(card)
 
+  // add animation on scroll with AOS
+  let aosAtt = document.createAttribute('data-aos')
+  aosAtt.value = 'fade-up'
+  let aosAnchorAtt = document.createAttribute('data-aos-anchor-placement')
+  aosAnchorAtt.value = 'center-bottom'
+  card.setAttributeNode(aosAtt)
+  card.setAttributeNode(aosAnchorAtt)
+
   // create card image container
   let cardImage = document.createElement('div')
   cardImage.className = 'card-image'
@@ -73,10 +81,8 @@ myPeopleArray.forEach((person) => {
   titleElement.textContent = person.name
 
   // convert character height from cm to ft & in
-  let charHeightFeet = person.height / 30.48
-  let charHeightFeetRounded = Math.floor(charHeightFeet)
-  let charHeightInches = person.height % 30.48 / 2.54
-  let charHeightInchesRounded = Math.floor(charHeightInches)
+  let charHeightFeet = Math.floor(person.height / 30.48)
+  let charHeightInches = Math.floor(person.height % 30.48 / 2.54)
 
   // create character height in card content container
   let charHeight = document.createElement('p')
@@ -87,7 +93,7 @@ myPeopleArray.forEach((person) => {
     card.className = 'hide-me'
     console.log('Card NOT created for ' + person.name + ' due to insufficient data.')
   } else {
-    charHeight.textContent = charHeightFeetRounded + " ft " + charHeightInchesRounded + " in"
+    charHeight.textContent = charHeightFeet + " ft " + charHeightInches + " in"
     console.log('Card successfully created for ' + person.name + '!')
   }
 })
