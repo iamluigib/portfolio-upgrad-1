@@ -3,6 +3,10 @@ import {
   people
 } from '../data/people.js'
 
+import {
+  species
+} from '../data/species.js'
+
 // reference point in document
 const projects = document.querySelector('#projects-content')
 
@@ -19,9 +23,12 @@ const getLastNumber = (url) => {
 // sort people from shortest to tallest
 people.sort((a, b) => (a.height - b.height))
 
-// custom values from array people
+// custom values from people array
 const myPeopleArray = people.map(person => {
   let imageURL = getLastNumber(person.url)
+  let foundSpecies = species.find(alien => {
+    return alien.url === person.species;
+  })
   return {
     name: person.name,
     height: person.height,
@@ -29,6 +36,7 @@ const myPeopleArray = people.map(person => {
     gender: person.gender,
     imagePath: `https://starwars-visualguide.com/assets/img/characters/${imageURL}.jpg`
   }
+  console.log(foundSpecies)
 })
 
 // card creation loop for SWAPI characters
@@ -87,6 +95,8 @@ myPeopleArray.forEach((person) => {
   // create character height in card content container
   let charHeight = document.createElement('p')
   cardContent.appendChild(charHeight)
+
+  console.log(person.species)
 
   // log failed and created card in console
   if (person.height === 'unknown') {
