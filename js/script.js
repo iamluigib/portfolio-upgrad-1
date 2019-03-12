@@ -42,11 +42,11 @@ myPeopleArray.forEach((person) => {
   let card = document.createElement('div')
   card.title = person.name
   if (person.gender === 'male') {
-    card.className = 'card hoverable blue accent-3 white-text'
+    card.className = 'card blue accent-3 white-text'
   } else if (person.gender === 'female') {
-    card.className = 'card hoverable pink accent-1 white-text'
+    card.className = 'card pink accent-1 white-text'
   } else {
-    card.className = 'card hoverable yellow'
+    card.className = 'card yellow'
   }
   column.appendChild(card)
 
