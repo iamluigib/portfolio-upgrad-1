@@ -20,15 +20,19 @@ const getLastNumber = (url) => {
   return url.slice(start, end)
 }
 
+// just get the array of people with known height values so it can be sorted separately
+const knownHeightPeople = people.filter(person => person.height !== 'unknown')
+
 // sort people from shortest to tallest
-people.sort((a, b) => (a.height - b.height))
+knownHeightPeople.sort((a, b) => a.height - b.height)
 
 // custom values from people array
-const myPeopleArray = people.map(person => {
+const myPeopleArray = knownHeightPeople.map(person => {
   let imageURL = getLastNumber(person.url)
-  let foundSpecies = species.find(alien => {
-    return alien.url === person.species;
-  })
+  //species property holds an array, so get the first item in it for comparison
+  let foundSpecies = species.find(alien => alien.url === person.species[0])  
+  
+  console.log(foundSpecies)
   return {
     name: person.name,
     height: person.height,
@@ -36,7 +40,7 @@ const myPeopleArray = people.map(person => {
     gender: person.gender,
     imagePath: `https://starwars-visualguide.com/assets/img/characters/${imageURL}.jpg`
   }
-  console.log(foundSpecies)
+  
 })
 
 // card creation loop for SWAPI characters
