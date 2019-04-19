@@ -1,0 +1,16 @@
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: none;
+  border: solid 1px #ebebeb;
+  cursor: pointer;
+}
+
+.btn,
+.btn-large {
+  border-radius: 100px;
+  box-shadow: none;
+  border: solid 1px #ebebeb;
+  background-color: white;
+  color: black;
+}
